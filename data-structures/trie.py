@@ -66,23 +66,51 @@ class Trie:
             currWord.pop()
     
         return result
+    
+    def delete(self, word, currIdx = 0, currNode = None):
+        if not currNode:
+            currNode = self.root
+
+        if currIdx == len(word):
+            if len(currNode.children):
+                currNode.isEndOfTheWord = False
+                return False
+            return True
+            
+
+        char = word[currIdx]
         
+        if char not in currNode.children:
+            return False
+        
+        shouldDeleteChild = self.delete(word, currIdx + 1, currNode.children[char])  
+        
+        if not shouldDeleteChild:
+            return False
 
+        del currNode.children[char]
 
+        if currNode.isEndOfTheWord or len(currNode.children):
+            return False
+        
+        return True
 
-
-
+ 
+        
 trie = Trie()
 trie.insert("cat")
 trie.insert("car")
 trie.insert("carpet")
 trie.insert("banana")
 
-allWords = trie.getAllWords()
-print(allWords)
 
 searchResult = trie.searchWords("car")
 print(searchResult)
+
+
+trie.delete('cat')
+allWords = trie.getAllWords()
+print(allWords)
 
 
 
