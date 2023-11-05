@@ -20,13 +20,10 @@ class Trie:
 
         
     def searchWords(self, keyWord):
-        i = 0
         parentNode = self.root
 
-        while i < len(keyWord):
-            char = keyWord[i]
+        for char in keyWord:
             if char in parentNode.children:
-                i += 1
                 parentNode = parentNode.children[char]
             else:
                 parentNode = None
@@ -67,6 +64,10 @@ class Trie:
     
         return result
     
+
+
+    # here i am deleting using bottom up recursion
+    # we could have done this iteratively if we had references from children to parent
     def delete(self, word, currIdx = 0, currNode = None):
         if not currNode:
             currNode = self.root
@@ -95,22 +96,24 @@ class Trie:
         
         return True
 
- 
-        
+
+
 trie = Trie()
 trie.insert("cat")
 trie.insert("car")
 trie.insert("carpet")
 trie.insert("banana")
 
+allWords = trie.getAllWords()
+print(allWords)
 
-searchResult = trie.searchWords("car")
+searchResult = trie.searchWords("ca")
 print(searchResult)
 
 
 trie.delete('cat')
-allWords = trie.getAllWords()
-print(allWords)
 
+searchResult = trie.searchWords("ca")
+print(searchResult)
 
 
