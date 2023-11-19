@@ -14,11 +14,12 @@ adjList = {
     9: [(1, 1), (3, 8)]
 }
 
+startingNode = 3
 result = 0
-visited = set([3])
+visited = set([startingNode])
 priorityQueue = []
 
-for neighbor in adjList[3]:
+for neighbor in adjList[startingNode]:
     heappush(priorityQueue, neighbor)
 
 while priorityQueue:
