@@ -2,8 +2,7 @@ from heapq import heappush
 from heapq import heappop
 
 def dijkstra(adj, source):
-    # i have valid adj list, but since nodes are labeled from 0 to n
-    # keys are not used, instead list indexes are used as node values
+    # since nodes are labeled from 0 to n list idxes are used as node values
     result = [float("inf")] * len(adj) 
     
     heap = [(0, source)]
