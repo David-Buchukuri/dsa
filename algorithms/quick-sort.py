@@ -3,7 +3,6 @@ def swap(idx1, idx2, arr):
     arr[idx1] = arr[idx2]
     arr[idx2] = temp
 
-
 def partition(arr, left, right):
     pivot = arr[right]
 
@@ -17,8 +16,6 @@ def partition(arr, left, right):
 
     return left - 1
     
-
-
 def quickSort(arr, left = None, right = None):
     if left == None: left = 0
     if right == None: right = len(arr) - 1
@@ -32,6 +29,5 @@ def quickSort(arr, left = None, right = None):
 
 
 arr = [1, 2, 9, 7, 4, 7, 4, 9, 4]
-
 quickSort(arr)
 print(arr)
