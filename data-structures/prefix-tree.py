@@ -3,7 +3,7 @@ class Node:
         self.children = {}
         self.isEndOfTheWord = False
 
-class Trie:
+class PrefixTree:
     def __init__(self):
         self.root = Node() 
     
@@ -98,22 +98,22 @@ class Trie:
 
 
 
-trie = Trie()
-trie.insert("cat")
-trie.insert("car")
-trie.insert("carpet")
-trie.insert("banana")
+pTree = PrefixTree()
+pTree.insert("cat")
+pTree.insert("car")
+pTree.insert("carpet")
+pTree.insert("banana")
 
-allWords = trie.getAllWords()
+allWords = pTree.getAllWords()
 print(allWords)
 
-searchResult = trie.searchWords("ca")
+searchResult = pTree.searchWords("ca")
 print(searchResult)
 
 
-trie.delete('cat')
+pTree.delete('cat')
 
-searchResult = trie.searchWords("ca")
+searchResult = pTree.searchWords("ca")
 print(searchResult)
 
 
