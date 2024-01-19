@@ -12,7 +12,7 @@ def dfs(adjList, node, visited = None):
 
 
 
-# undirected graph
+# undirected connected graph
 edges = [
     [1,2],
     [0,2],
